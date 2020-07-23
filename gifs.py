@@ -54,7 +54,7 @@ class gif():
         for i in range(len(self.nombres)):
             self.images.append(imageio.imread(self.nombres[i]))
 
-        imageio.mimsave('resources/movie.gif',self.images, duration=0.5, subrectangles=True)
+        imageio.mimsave('resources/movie.gif',self.images, duration=0.5)
 
 def main():
     gif()
