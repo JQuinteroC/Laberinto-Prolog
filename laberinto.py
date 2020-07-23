@@ -78,3 +78,9 @@ camino = inicializar()
 
 gi = gif(map)
 gi.mover(camino)
+root = tk.Tk()
+lbl = ImageLabel(root)
+lbl.pack()
+lbl.load('resources/movie.gif')
+root.mainloop()
+
