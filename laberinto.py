@@ -1,5 +1,8 @@
 from pyswip import Prolog
 from gifs import gif
+import tkinter as tk
+from ventana import ImageLabel
+
 prolog = Prolog()
 # Lectura del archivo
 mapa = open("laberinto.txt")
@@ -83,4 +86,3 @@ lbl = ImageLabel(root)
 lbl.pack()
 lbl.load('resources/movie.gif')
 root.mainloop()
-
