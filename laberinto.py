@@ -21,7 +21,7 @@ for i in range(1,len(map)-2):
     for j in range(0,len(map[i])-1):
         if "-" in map[i+1][j]:
           if("conectado(" + map[i][j].replace('|', '') + "," + map[i+2][j].replace('|', '') + ")" != "conectado(,)"):
-            print("conectado(" + map[i][j].replace('|', '') + "," + map[i+2][j].replace('|', '') + ")")
+            prolog.assertz("conectado(" + map[i][j].replace('|', '') + "," + map[i+2][j].replace('|', '') + ")") """
 
 # ESTO ES PARA BUSCAR DONDE ESTA EL COMIENZO Y EL FIN, AUN FALTARIA BUSCAR DONDE ESTA LA POSICION ANTERIOR POR LA QUE PODRIA LLEGAR
 def buscar_en_matriz(matriz, cont, para):
