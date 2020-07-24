@@ -20,7 +20,7 @@ class gif():
             self.crearImagen(self.a,num,pos[0],pos[1])
             num = num + 1
         self.crearGif()
-    
+    '''
     def crearImagen(self,a,paso, posi, posj):
         x = 0
         y = 0
@@ -43,6 +43,36 @@ class gif():
                         draw.text((50 + x,50 + y),"─",font=font, fill="black")
                     else:
                         draw.text((50 + x,50 + y),str(a[i][j]),font=font, fill="black")
+                x += 50
+            y += 50
+            x = 0
+
+        image.save("resources/Imagen"+ str(paso) +".png")
+        self.nombres.append("resources/Imagen"+str(paso)+".png")
+    '''
+
+    def crearImagen(self,a,paso, posi, posj):
+        x = 0
+        y = 0
+    
+        image = Image.open("resources/Imagen1.png")
+        draw = ImageDraw.Draw(image)
+
+        font = ImageFont.truetype("arial.ttf",20)
+
+        for i in range(len(a)):
+            for j in range(len(a[i])):
+                if i == posi and j == posj:
+                    draw.text((50 + x,50 + y),str(char(169)),font=font, fill="red")
+                else:
+                    if (j == 0 or j == len(a[i])) and a[i][j] == "+":
+                        draw.text((50 + x,50 + y),str(char(186)),font=font, fill="black")
+                    elif str(a[i][j]) == "-":
+                        draw.text((50 + x,50 + y),str(char(205)),font=font, fill="black")
+                    elif str(a[i][j]) == "+":
+                        draw.text((50 + x,50 + y),str(char(186)),font=font, fill="black")
+                    else:
+                        draw.text((50 + x,50 + y)," ",font=font, fill="black")
                 x += 50
             y += 50
             x = 0
