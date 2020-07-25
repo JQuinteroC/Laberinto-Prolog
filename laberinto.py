@@ -78,7 +78,7 @@ def inicializar():
     return camino
 
 camino = inicializar()
-
+#camino = ['inicio', 2, 3, 4, 10, 16, 22, 21, 15, 14, 20, 26, 27, 28, 34, 33, 32, 'fin']
 gi = gif(map)
 gi.mover(camino)
 root = tk.Tk()
