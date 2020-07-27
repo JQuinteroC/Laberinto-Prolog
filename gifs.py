@@ -8,18 +8,19 @@ class gif():
         self.nombres = []
         self.images = []
 
-        self.crearImagen(self.a, 2, -1, -1)
+        self.crearImagen(self.a, 2, -1, -1, [])
 
     def mover(self, recorrido):
         self.reco = recorrido
         num = 3
         for i in self.reco:
             pos = buscar_en_matriz(self.a,0,i)
-            self.crearImagen(self.a,num,pos[0],pos[1])
+            index = self.reco.index(i)
+            self.crearImagen(self.a,num,pos[0],pos[1], self.reco[0:index])
             num = num + 1
         self.crearGif()
 
-    def crearImagen(self,a,paso, posi, posj):
+    def crearImagen(self,a,paso, posi, posj, pos):
         x = 0
         y = 0
     
@@ -31,9 +32,19 @@ class gif():
         for i in range(len(a)):
             for j in range(len(a[i])):
                 # Recorrido
-                if i == posi and j == posj:
+                if str(a[i][j]).replace("|","") in pos: # Migas de pan
+                    for recorridos in pos:
+                        k = buscar_en_matriz(a,0,recorridos)
+                        xtem = 50 * k[1]
+                        ytem = 50 * k[0]
+                        if "|" in a[k[0]][k[1]]:
+                            draw.text((50 + xtem,50 + ytem), chr(9608),font=font, fill="red")
+                        else:
+                            draw.text((50 + xtem,50 + ytem), chr(9608),font=font, fill="red")
+                if i == posi and j == posj: # Posición actual
                     if "|" in a[i][j]:
                         draw.text((50 + x,50 + y), chr(9632) + chr(9553),font=font, fill="red")
+                        draw.text((50 + x,50 + y), "  " + chr(9553),font=font, fill="black")
                     else:
                         draw.text((50 + x,50 + y), chr(9632),font=font, fill="red")
                 else:
